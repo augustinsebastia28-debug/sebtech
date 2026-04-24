@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | SebTech</title>
+  <meta name="description" content="Contact SebTech to book a repair or ask for help with your device.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Oxanium:wght@600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body data-page="contact">
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="index.html" aria-label="SebTech home">
+        <span class="brand-mark"><img src="./assets/sebtech-logo.png" alt="SebTech logo"></span>
+        <span class="brand-text">
+          <strong>SebTech</strong>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="repairs.html">Repairs</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="header-actions hide-mobile">
+        <a class="button button-small button-solid" href="contact.html#book">Contact Now</a>
+        <div class="header-contact-inline">
+          <span>07519906757</span>
+          <span>augustinsebastia2890@gmail.com</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container page-hero-grid">
+        <div class="page-copy reveal">
+          <p class="eyebrow">Contact</p>
+          <h1>Book a repair or ask a question.</h1>
+          <p>Based locally in Royal Leamington Spa. Send the basics and we will get back to you with the next step.</p>
+        </div>
+        <div class="hero-side-card reveal">
+          <h2>Royal Leamington Spa</h2>
+          <p>We are based locally and help customers in Royal Leamington Spa and nearby areas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="callout reveal">
+          <strong>Request repairs here:</strong>
+          <span>Please use the booking form below to send all repair requests with the main details in one place.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section">
+      <div class="container contact-grid">
+        <div class="contact-details">
+          <article class="contact-card reveal">
+            <p class="eyebrow">Phone</p>
+            <h3>07519906757</h3>
+            <p>Shown here for reference. Please use the booking form below for repair requests.</p>
+          </article>
+
+          <article class="contact-card reveal">
+            <p class="eyebrow">Email</p>
+            <h3>augustinsebastia2890@gmail.com</h3>
+            <p>Please use the booking form below to send your request with the right details.</p>
+          </article>
+
+          <article class="contact-card reveal">
+            <p class="eyebrow">Location</p>
+            <h3>Royal Leamington Spa</h3>
+            <p>Based locally and easy to reach for nearby customers.</p>
+          </article>
+
+        </div>
+
+        <div class="booking-panel reveal" id="book">
+          <div class="section-heading">
+            <p class="eyebrow">Contact Now</p>
+            <h2>Start your repair request</h2>
+            <p>Fill this in to send your repair request with all the details in one place.</p>
+          </div>
+
+          <form id="booking-form" data-email="augustinsebastia2890@gmail.com">
+            <div class="field-row">
+              <label>
+                Full Name
+                <input type="text" name="name" placeholder="Your first and last name" autocomplete="name" required>
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" placeholder="you@example.com" required>
+              </label>
+            </div>
+
+            <label>
+              Phone Number
+              <input type="tel" name="phone" placeholder="07... or +44..." autocomplete="tel" inputmode="tel" required>
+            </label>
+
+            <label>
+              Repair Option
+              <select name="visitType" id="visit-type" required>
+                <option value="">Choose an option</option>
+                <option value="Customer is coming to SebTech (we will tell you a specific time to come)">I am coming to SebTech (we will tell you a specific time to come)</option>
+                <option value="Please pick up my device">Please pick up my device</option>
+              </select>
+            </label>
+
+            <div class="conditional-field" id="pickup-address-wrap" hidden>
+              <label>
+                Pickup Address
+                <textarea name="pickupAddress" id="pickup-address" rows="3" placeholder="House number, street, town, postcode"></textarea>
+              </label>
+            </div>
+
+            <div class="field-row">
+              <label>
+                Device
+                <select name="device" id="device-type" required>
+                  <option value="">Choose a device</option>
+                  <option>Phone</option>
+                  <option>Tablet</option>
+                  <option>Laptop</option>
+                  <option>Desktop PC</option>
+                  <option>Console</option>
+                  <option>Other / type it manually</option>
+                </select>
+              </label>
+              <label>
+                Urgency
+                <select name="urgency">
+                  <option>Standard</option>
+                  <option>As soon as possible</option>
+                  <option>Need advice first</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="conditional-field" id="manual-device-wrap" hidden>
+              <label>
+                Device Name
+                <input type="text" name="manualDevice" id="manual-device" placeholder="Example: iMac, printer, custom PC or another device">
+              </label>
+            </div>
+
+            <label>
+              Problem
+              <textarea name="issue" rows="5" placeholder="Example: My laptop is overheating and shutting down." required></textarea>
+            </label>
+
+            <label>
+              Extra details
+              <textarea name="details" rows="3" placeholder="Model, damage, or anything already tried."></textarea>
+            </label>
+
+            <button class="button button-solid" type="submit">Open Repair Email</button>
+            <p class="form-note" id="form-note" aria-live="polite">Enter your full name and phone number, then open your repair email.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-simple">
+      <a class="brand footer-brand" href="index.html">
+        <span class="brand-mark"><img src="./assets/sebtech-logo.png" alt="SebTech logo"></span>
+        <span class="brand-text">
+          <strong>SebTech</strong>
+        </span>
+      </a>
+
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="repairs.html">Repairs</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <p>Copyright <span class="year"></span> SebTech.</p>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
