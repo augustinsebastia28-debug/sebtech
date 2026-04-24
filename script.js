@@ -7,6 +7,70 @@ const pageSequence = [
 ];
 
 const pageMap = Object.fromEntries(pageSequence.map((page) => [page.key, page.href]));
+const inlineSvgByDevice = {
+  brand: `
+    <svg viewBox="0 0 120 120" role="img" aria-label="SebTech logo" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="sebtech-logo-fill" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#14b8a6"/>
+          <stop offset="100%" stop-color="#0f766e"/>
+        </linearGradient>
+      </defs>
+      <rect x="8" y="8" width="104" height="104" rx="28" fill="url(#sebtech-logo-fill)"/>
+      <path d="M73 27h15v12H78l-5 5h10c10.5 0 18 6.5 18 16.5 0 10-7.5 16.5-18 16.5H63l-5 5h30v12H48l15-15h20c3.8 0 6.5-2.2 6.5-5.5S86.8 64 83 64H64l-14 14H34V66h11l5-5H34V49h31l5-5H43V32h30z" fill="#ffffff"/>
+      <path d="M26 82h21" stroke="#bff7ef" stroke-width="6" stroke-linecap="round"/>
+      <path d="M83 82l11 11" stroke="#bff7ef" stroke-width="6" stroke-linecap="round"/>
+      <path d="M94 82L83 93" stroke="#bff7ef" stroke-width="6" stroke-linecap="round"/>
+    </svg>
+  `,
+  phone: `
+    <svg viewBox="0 0 240 180" role="img" aria-label="Phone and tablet devices" xmlns="http://www.w3.org/2000/svg">
+      <rect width="240" height="180" rx="28" fill="#f6fafb"/>
+      <rect x="40" y="20" width="58" height="122" rx="14" fill="#132330"/>
+      <rect x="46" y="30" width="46" height="92" rx="9" fill="#5eead4"/>
+      <circle cx="69" cy="132" r="5" fill="#dbe7ec"/>
+      <rect x="120" y="30" width="82" height="104" rx="12" fill="#1f3444"/>
+      <rect x="128" y="40" width="66" height="84" rx="8" fill="#c5fff6"/>
+      <path d="M145 154h42" stroke="#14b8a6" stroke-width="8" stroke-linecap="round"/>
+    </svg>
+  `,
+  laptop: `
+    <svg viewBox="0 0 240 180" role="img" aria-label="Laptop device" xmlns="http://www.w3.org/2000/svg">
+      <rect width="240" height="180" rx="28" fill="#f6fafb"/>
+      <rect x="54" y="26" width="132" height="84" rx="10" fill="#1f3444"/>
+      <rect x="62" y="34" width="116" height="68" rx="6" fill="#99f6e4"/>
+      <path d="M38 122h164l12 22H26l12-22z" fill="#cdd9df"/>
+      <rect x="95" y="128" width="50" height="6" rx="3" fill="#8aa1ad"/>
+      <circle cx="168" cy="64" r="10" fill="#14b8a6" opacity="0.85"/>
+    </svg>
+  `,
+  desktop: `
+    <svg viewBox="0 0 240 180" role="img" aria-label="Desktop PC tower" xmlns="http://www.w3.org/2000/svg">
+      <rect width="240" height="180" rx="28" fill="#f6fafb"/>
+      <rect x="28" y="34" width="112" height="74" rx="10" fill="#1f3444"/>
+      <rect x="36" y="42" width="96" height="58" rx="6" fill="#c5fff6"/>
+      <rect x="74" y="112" width="20" height="12" rx="4" fill="#8aa1ad"/>
+      <rect x="56" y="124" width="56" height="8" rx="4" fill="#8aa1ad"/>
+      <rect x="158" y="26" width="48" height="112" rx="10" fill="#162531"/>
+      <circle cx="182" cy="48" r="5" fill="#14b8a6"/>
+      <rect x="170" y="66" width="24" height="34" rx="4" fill="#2c4354"/>
+      <path d="M170 114h24" stroke="#8cf3e5" stroke-width="5" stroke-linecap="round"/>
+    </svg>
+  `,
+  console: `
+    <svg viewBox="0 0 240 180" role="img" aria-label="Game console and controller" xmlns="http://www.w3.org/2000/svg">
+      <rect width="240" height="180" rx="28" fill="#f6fafb"/>
+      <rect x="36" y="34" width="44" height="96" rx="14" fill="#1f3444"/>
+      <rect x="160" y="34" width="44" height="96" rx="14" fill="#1f3444"/>
+      <rect x="92" y="84" width="56" height="30" rx="15" fill="#132330"/>
+      <circle cx="114" cy="98" r="7" fill="#14b8a6"/>
+      <circle cx="126" cy="98" r="7" fill="#5eead4"/>
+      <circle cx="173" cy="150" r="10" fill="#14b8a6"/>
+      <path d="M60 150h38" stroke="#14b8a6" stroke-width="8" stroke-linecap="round"/>
+      <path d="M79 131v38" stroke="#14b8a6" stroke-width="8" stroke-linecap="round"/>
+    </svg>
+  `,
+};
 
 const body = document.body;
 const navToggle = document.querySelector(".nav-toggle");
@@ -75,6 +139,18 @@ window.addEventListener("scroll", () => {
 
 interactiveCards.forEach((card) => {
   card.classList.add("interactive-card");
+});
+
+document.querySelectorAll(".brand-mark").forEach((mark) => {
+  mark.innerHTML = inlineSvgByDevice.brand;
+});
+
+document.querySelectorAll(".repair-media[data-device]").forEach((media) => {
+  const device = media.getAttribute("data-device");
+
+  if (device && inlineSvgByDevice[device]) {
+    media.innerHTML = inlineSvgByDevice[device];
+  }
 });
 
 if (navToggle) {
